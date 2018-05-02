@@ -1,4 +1,4 @@
-# Azure Security and Compliance Blueprint: Data Warehouse for GDPR
+# Azure Security and Compliance Blueprint: Data Warehouse for NIST SP 800-171
 
 ## Overview
 The [NIST Special Publication 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) provides guidelines for the protection of controlled unclassified information (CUI) in nonfederal information systems and organizations. NIST SP 800-171 establishes fourteen families of security requirements for protecting the confidentiality of Controlled Unclassified Information (CUI) in nonfederal information systems and organizations.
@@ -85,7 +85,7 @@ Each of the NSGs have specific ports and protocols open so that the solution can
 The architecture protects data at rest through multiple measures, including encryption and database auditing.
 
 **Azure Storage**:
-To meet encrypted data at rest requirements, all [Azure Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). This helps protect and safeguard data in support of organizational security commitments and compliance requirements defined by the GDPR.
+To meet encrypted data at rest requirements, all [Azure Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). This helps protect and safeguard data in support of organizational security commitments and compliance requirements.
 
 **Azure Disk Encryption**:
 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) leverages the BitLocker feature of Windows to provide volume encryption for OS and data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
@@ -100,7 +100,7 @@ The Azure SQL Database instance uses the following database security measures:
 -	[Always Encrypted Columns](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ensure that sensitive data never appears as plaintext inside the database system. After enabling data encryption, only client applications or app servers with access to the keys can access plaintext data.
 - The [Extended Properties](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql) feature can be used to discontinue the processing of data subjects, as it allows users to add custom properties to database objects and tag data as "Discontinued" to support application logic to prevent the processing of associated data.
 - [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) enables users to define policies to restrict access to data to discontinue processing.
-- [SQL Database Dynamic Data Masking (DDM)](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive data exposure by masking the data to non-privileged users or applications. DDM can automatically discover potentially sensitive data and suggest the appropriate masks to be applied. This helps with the identification of data qualifying for GDPR protection, and for reducing access such that it does not exit the database via unauthorized access. **Note: Customers will need to adjust DDM settings to adhere to their database schema.**
+- [SQL Database Dynamic Data Masking (DDM)](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive data exposure by masking the data to non-privileged users or applications. DDM can automatically discover potentially sensitive data and suggest the appropriate masks to be applied. This helps with reducing access to sensitive data such that it does not exit the database via unauthorized access. **Note: Customers will need to adjust DDM settings to adhere to their database schema.**
 
 ### Identity management
 The following technologies provide capabilities to manage access to data in the Azure environment:
@@ -156,9 +156,9 @@ The data flow diagram for this reference architecture is available for [download
 ![alt text](?raw=true)
 
 ## Compliance documentation
-The [Azure Security and Compliance Blueprint – NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/) lists controller and processor responsibilities for all GDPR articles. Please note that for Azure services, a customer is usually the controller and Microsoft acts as the processor.
+The [Azure Security and Compliance Blueprint – NIST SP 800-171 Customer Responsibility Matrix (CRM)](https://aka.ms/) lists all security controls required by NIST SP 800-171. The CRM details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
 
-The [Azure Security and Compliance Blueprint - NIST SP 800-171 Data Warehouse Implementation Matrix](https://aka.ms/) provides information on which GDPR articles are addressed by the data warehouse architecture, including detailed descriptions of how the implementation meets the requirements of each covered article.
+The [Azure Security and Compliance Blueprint - NIST SP 800-171 Data Warehouse Implementation Matrix](https://aka.ms/) provides information on which NIST SP 800-171 controls are covered by the data warehouse architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
 
 ## Guidance and recommendations
 ### VPN and ExpressRoute
