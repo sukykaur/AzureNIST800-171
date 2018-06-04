@@ -48,7 +48,7 @@ This solution uses the following Azure services. Details of the deployment archi
 ## Deployment architecture
 The following section details the deployment and implementation elements.
 
-**Bastion host**: The bastion host is the single point of entry that allows users to access the deployed resources in this environment. The bastion host provides a secure connection to deployed resources by only allowing remote traffic from public IP addresses on a safe list. To permit remote desktop (RDP) traffic, the source of the traffic needs to be defined in the network security group (NSG).
+**Bastion host**: The bastion host is the single point of entry that allows users to access the deployed resources in this environment. The bastion host provides a secure connection to deployed resources by only allowing remote traffic from public IP addresses on a safe list. To permit remote desktop (RDP) traffic, the source of the traffic needs to be defined in the Network Security Group (NSG).
 
 This solution creates a virtual machine as a domain-joined bastion host with the following configurations:
 -	[Antimalware extension](https://docs.microsoft.com/azure/security/azure-security-antimalware)
