@@ -166,7 +166,7 @@ The data flow diagram (DFD) for this reference architecture is available for [do
 
 ## Compliance documentation
 
-The [Azure Security and Compliance Blueprint - GDPR Customer Responsibility Matrix](https://aka.ms/gdprCRM) lists controller and processor responsibilities for all GDPR articles. Please note that for Azure services, a customer is usually the controller and Microsoft acts as the processor.
+The [Azure Security and Compliance Blueprint - NIST 800-171 Customer Responsibility Matrix](https://servicetrust.microsoft.com/ViewPage/Blueprint?command=Download&downloadType=Document&downloadId=278a71c1-0438-4330-abb3-ad475f982f1e&docTab=fc060920-cdb8-11e7-bacf-0bf52b09d912_DoD_Blueprint) lists controller and processor responsibilities for all GDPR articles. Please note that for Azure services, a customer is usually the controller and Microsoft acts as the processor.
 
 The [Azure Security and Compliance Blueprint - GDPR IaaS Web Application Implementation Matrix](https://aka.ms/gdprIaaSweb) provides information on which GDPR articles are addressed by the IaaS Web Application architecture, including detailed descriptions of how the implementation meets the requirements of each covered article.
 
