@@ -167,14 +167,14 @@ Additionally, the following OMS solutions are included as a part of this archite
 
 ## Threat model
 
-The data flow diagram for this reference architecture is available for [download](https://aka.ms/gdprPaaSdfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
+The data flow diagram for this reference architecture is available for [download](https://aka.ms/) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
 ![alt text](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20PaaS%20Web%20App%20Threat%20Model.PNG?raw=true)
 
 ## Compliance documentation
-The [Azure Security and Compliance Blueprint – GDPR Customer Responsibility Matrix](https://aka.ms/) lists controller and processor responsibilities for all GDPR articles. Please note that for Azure services, a customer is usually the controller and Microsoft acts as the processor.
+The [Azure Security and Compliance Blueprint – NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/) lists controller and processor responsibilities for all GDPR articles. Please note that for Azure services, a customer is usually the controller and Microsoft acts as the processor.
 
-The [Azure Security and Compliance Blueprint - GDPR PaaS Web Application Implementation Matrix](https://aka.ms/) provides information on which GDPR articles are addressed by the PaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered article.
+The [Azure Security and Compliance Blueprint - NIST SP 800-171 PaaS Web Application Implementation Matrix](https://aka.ms/) provides information on which GDPR articles are addressed by the PaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered article.
 
 
 ## Guidance and recommendations
