@@ -1,14 +1,14 @@
 # Azure Security and Compliance Blueprint - Web Application for NIST SP 800-171
 
 ## Overview
-The NIST Special Publication 800-171 provides guidelines for protecting the controlled unclassified information (CUI) that resides in nonfederal information systems and organizations. NIST SP 800-171 establishes 14 families of security requirements for protecting the confidentiality of CUI.
+The [NIST Special Publication 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) provides guidelines for protecting the controlled unclassified information (CUI) that resides in nonfederal information systems and organizations. NIST SP 800-171 establishes 14 families of security requirements for protecting the confidentiality of CUI.
 
 This Azure Security and Compliance Blueprint provides guidance to help customers deploy a data warehouse architecture in Azure that implements a subset of NIST SP 800-171 controls. This solution demonstrates ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own data warehouse solutions in Azure.
 
 This reference architecture, associated implementation guide, and threat model are intended to serve as a foundation for customers to adapt to their specific requirements and shouldn't be used as-is in a production environment. Deploying this architecture without modification is insufficient to completely meet the requirements of NIST SP 800-171. Note the following:
+- The architecture provides a baseline to help customers deploy workloads to Azure in compliance with NIST SP 800-171.
+- Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
 
-The architecture provides a baseline to help customers deploy workloads to Azure in compliance with NIST SP 800-171.
-Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
 ## Architecture diagram and components
 This solution deploys a reference architecture for an IaaS web application with a SQL Server backend. The architecture includes a web tier, data tier, Active Directory infrastructure, Application Gateway, and Load Balancer. Virtual machines deployed to the web and data tiers are configured in an availability set, and SQL Server instances are configured in an AlwaysOn availability group for high availability. Virtual machines are domain-joined, and Active Directory group policies are used to enforce security and compliance configurations at the operating system level. A management bastion host provides a secure connection for administrators to access deployed resources. **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
 
@@ -78,7 +78,7 @@ Azure encrypts all communications to and from Azure datacenters by default. Addi
 ### Data at rest
 The architecture protects data at rest through multiple measures, including encryption and database auditing.
 
-**Azure Storage**: To meet encrypted data at rest requirements, all [Azure Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). This helps protect and safeguard personal data in support of organizational security commitments and compliance requirements defined by the GDPR.
+**Azure Storage**: To meet encrypted data at rest requirements, all [Azure Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). This helps protect and safeguard personal data in support of organizational security commitments and compliance requirements defined by the NIST SP 800-171.
 
 **Azure Disk Encryption**: Azure Disk Encryption is used to encrypted Windows IaaS virtual machine disks. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) leverages the BitLocker feature of Windows to provide volume encryption for OS and data disks. The solution is integrated with Azure Key Vault to help control and manage the disk-encryption keys.
 
@@ -91,7 +91,7 @@ The architecture protects data at rest through multiple measures, including encr
 -	[Always Encrypted Columns](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ensure that sensitive personal data never appears as plaintext inside the database system. After enabling data encryption, only client applications or application servers with access to the keys can access plaintext data.
 - The [Extended Properties](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql) feature can be used to discontinue the processing of data subjects, as it allows users to add custom properties to database objects and tag data as "Discontinued" to support application logic to prevent the processing of associated personal data.
 - [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) enables users to define policies to restrict access to data to discontinue processing.
-- [SQL Database Dynamic Data Masking (DDM)](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive personal data exposure by masking the data to non-privileged users or applications. DDM can automatically discover potentially sensitive data and suggest the appropriate masks to be applied. This helps with the identification of personal data qualifying for GDPR protection, and for reducing access such that it does not exit the database via unauthorized access. **Note: Customers will need to adjust DDM settings to adhere to their database schema.**
+- [SQL Database Dynamic Data Masking (DDM)](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive personal data exposure by masking the data to non-privileged users or applications. DDM can automatically discover potentially sensitive data and suggest the appropriate masks to be applied. This helps with the identification of personal data qualifying for NIST SP 800-171 protection, and for reducing access such that it does not exit the database via unauthorized access. **: Customers will need to adjust DDM settings to adhere to their database schema.**
 
 ### Identity management
 The following technologies provide capabilities to manage access to personal data in the Azure environment:
@@ -160,15 +160,15 @@ Additionally, the following OMS solutions are included as a part of this archite
 
 ## Threat model
 
-The data flow diagram (DFD) for this reference architecture is available for [download](https://aka.ms/gdprIaaSdfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
+The data flow diagram (DFD) for this reference architecture is available for [download](https://aka.ms/NIST SP 800-171IaaSdfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![alt text](https://github.com/sukykaur/AzureGDPR/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20GDPR%20IaaS%20WebApp%20Threat%20Model.PNG?raw=true)
+![alt text](https://github.com/sukykaur/AzureNIST SP 800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST SP 800-171%20IaaS%20WebApp%20Threat%20Model.PNG?raw=true)
 
 ## Compliance documentation
 
-The [Azure Security and Compliance Blueprint - NIST 800-171 Customer Responsibility Matrix](https://servicetrust.microsoft.com/ViewPage/Blueprint?command=Download&downloadType=Document&downloadId=278a71c1-0438-4330-abb3-ad475f982f1e&docTab=fc060920-cdb8-11e7-bacf-0bf52b09d912_DoD_Blueprint) lists controller and processor responsibilities for all GDPR articles. Please note that for Azure services, a customer is usually the controller and Microsoft acts as the processor.
+The [Azure Security and Compliance Blueprint - NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/NIST SP 800-171CRM) lists controller and processor responsibilities for all NIST SP 800-171 articles. Please NIST SP 800-171 that for Azure services, a customer is usually the controller and Microsoft acts as the processor.
 
-The [Azure Security and Compliance Blueprint - GDPR IaaS Web Application Implementation Matrix](https://aka.ms/gdprIaaSweb) provides information on which GDPR articles are addressed by the IaaS Web Application architecture, including detailed descriptions of how the implementation meets the requirements of each covered article.
+The [Azure Security and Compliance Blueprint - NIST SP 800-171 IaaS Web Application Implementation Matrix](https://aka.ms/NIST SP 800-171IaaSweb) provides information on which NIST SP 800-171 articles are addressed by the IaaS Web Application architecture, including detailed descriptions of how the implementation meets the requirements of each covered article.
 
 ## Guidance and recommendations
 ### VPN and ExpressRoute
