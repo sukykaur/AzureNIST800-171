@@ -20,7 +20,7 @@ This data warehouse reference architecture also includes an Active Directory tie
 
 A virtual machine serves as a management bastion host, providing a secure connection for administrators to access deployed resources. The data loads into the staging area through this management bastion host. **Azure recommends configuring a VPN or Azure ExpressRoute connection for management and data import into the reference architecture subnet.**
 
-![Reference Architecture](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20SP%20800-171%20Data%20Warehouse%20Reference%20Architecture.png?raw=true)
+![Reference Architecture](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Warehouse%20Reference%20Architecture.png?raw=true)
 
 This solution uses the following Azure services. Details of the deployment architecture are in the [deployment architecture](#deployment-architecture) section.
 
