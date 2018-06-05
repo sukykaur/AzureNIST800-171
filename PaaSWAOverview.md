@@ -1,4 +1,4 @@
-# Azure Security and Compliance Blueprint - Web Application for GDPR
+# Azure Security and Compliance Blueprint - Web Application for NIST Special Publication 800-171
 
 ## Overview
 The NIST Special Publication 800-171 provides guidelines for protecting the controlled unclassified information (CUI) that resides in nonfederal information systems and organizations. NIST SP 800-171 establishes 14 families of security requirements for protecting the confidentiality of CUI.
