@@ -63,7 +63,7 @@ Use of App Service Environments for this architecture are allowed for the follow
 ### Virtual Network
 The architecture defines a private Virtual Network with an address space of 10.200.0.0/16.
 
-**Network Security Group**: [network security group](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists that allow or deny traffic within a Virtual Network. network security group can be used to secure traffic at a subnet or individual virtual machine level. The following network security group exist:
+**Network Security Groups**: [Network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists that allow or deny traffic within a Virtual Network. network security group can be used to secure traffic at a subnet or individual virtual machine level. The following network security group exist:
 - 1 network security group for Application Gateway
 - 1 network security group for App Service Environment
 - 1 network security group for Azure SQL Database
