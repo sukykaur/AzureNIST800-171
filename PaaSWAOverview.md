@@ -3,14 +3,14 @@
 ## Overview
 The NIST Special Publication 800-171 provides guidelines for protecting the controlled unclassified information (CUI) that resides in nonfederal information systems and organizations. NIST SP 800-171 establishes 14 families of security requirements for protecting the confidentiality of CUI.
 
-This Azure Security and Compliance Blueprint provides guidance to help customers deploy a platform as a service (IaaS) web application in Azure that implements a subset of NIST SP 800-171 controls. This solution demonstrates ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own data warehouse solutions in Azure.
+This Azure Security and Compliance Blueprint provides guidance to help customers deploy a platform as a service (PaaS) web application in Azure that implements a subset of NIST SP 800-171 controls. This solution demonstrates ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own data warehouse solutions in Azure.
 
 This reference architecture, associated implementation guide, and threat model are intended to serve as a foundation for customers to adapt to their specific requirements and shouldn't be used as-is in a production environment. Deploying this architecture without modification is insufficient to completely meet the requirements of NIST SP 800-171. This architecture provides a baseline to help customers deploy workloads to Azure in compliance with NIST SP 800-171. Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
 
 ## Architecture diagram and components
-This solution provides a reference architecture for a PaaS web application with an Azure SQL Database backend. The web application is hosted in an isolated Azure App Service Environment, which is a private, dedicated environment in an Azure datacenter. The environment load balances traffic for the web application across VMs managed by Azure. This architecture also includes Network Security Groups, an Application Gateway, Azure DNS, and Load Balancer. Furthermore, Application Insights provides real time application performance management and analytics through Operations Management Suite. **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
+This solution provides a reference architecture for a PaaS web application with an Azure SQL Database backend. The web application is hosted in an isolated Azure App Service Environment, which is a private, dedicated environment in an Azure datacenter. The environment load balances traffic for the web application across virtual machines managed by Azure. This architecture also includes network security group, an Application Gateway, Azure DNS, and Load Balancer. Furthermore, Application Insights provides real time application performance management and analytics through Operations Management Suite. **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
 
-![alt text](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20PaaS%20WebApp%20Reference%20Architecture.png?raw=true)
+![alt text](https://github.com/sukykaur/AzureGDPR/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20GDPR%20Paas%20WebApp%20Reference%20Architecture.png?raw=true)
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
@@ -23,7 +23,7 @@ This solution uses the following Azure services. Details of the deployment archi
 		- rule set: OWASP 3.0
 		- listener: port 443
 - Azure virtual network
-- Network Security Groups
+- network security group
 - Azure DNS
 - Azure Storage
 - Operations Management Suite
@@ -49,7 +49,7 @@ App Service Environments are isolated to only run a single customer's applicatio
 Use of App Service Environments for this architecture are allowed for the following controls/configurations:
 
 - Host inside a secured Azure Virtual Network and network security rules
-- ASE configured with self-signed ILB certificate for HTTPS communication
+- App service environments configured with self-signed ILB certificate for HTTPS communication
 - [Internal Load Balancing mode](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-environment-with-internal-load-balancer) (mode 3)
 - Disable [TLS 1.0](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Change [TLS Cipher](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-custom-settings)
@@ -63,16 +63,16 @@ Use of App Service Environments for this architecture are allowed for the follow
 ### Virtual Network
 The architecture defines a private Virtual Network with an address space of 10.200.0.0/16.
 
-**Network Security Groups**: [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists that allow or deny traffic within a Virtual Network. Network Security Groups can be used to secure traffic at a subnet or individual Virtual Machine level. The following Network Security Groups exist:
-- 1 Network Security Groups for Application Gateway
-- 1 Network Security Groups for App Service Environment
-- 1 Network Security Groups for Azure SQL Database
+**Network Security Group**: [network security group](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists that allow or deny traffic within a Virtual Network. network security group can be used to secure traffic at a subnet or individual virtual machine level. The following network security group exist:
+- 1 network security group for Application Gateway
+- 1 network security group for App Service Environment
+- 1 network security group for Azure SQL Database
 
 Each of the NSGs have specific ports and protocols open so that the solution can work securely and correctly. In addition, the following configurations are enabled for each NSG:
   -	[Diagnostic logs and events](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log) are enabled and stored in a storage account
-  -	Operations Management Suite's Log Analytics is connected to the [Network Security Groups's diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  -	Operations Management Suite's Log Analytics is connected to the [network security group's diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
-**Subnets**: Each subnet is associated with its corresponding Network Security Groups.
+**Subnets**: Each subnet is associated with its corresponding network security group.
 
 **Azure DNS**:
 The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. [Azure DNS](https://docs.microsoft.com/en-us/azure/dns/dns-overview) is a hosting service for DNS domains that provides name resolution using Azure infrastructure. By hosting domains in Azure, users can manage DNS records using the same credentials, APIs, tools, and billing as other Azure services. Azure DNS also supports private DNS domains.
@@ -166,7 +166,7 @@ Additionally, the following Operations Management Suite solutions are included a
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/gdprPaaSdfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![alt text](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20PaaS%20Web%20App%20Threat%20Model.PNG?raw=true)
+![alt text](https://github.com/sukykaur/AzureGDPR/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20%E2%80%93%20GDPR%20PaaS%20WebApp%20Threat%20Model.png?raw=true)
 
 ## Compliance documentation
 The [Azure Security and Compliance Blueprint – NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/gdprCRM) lists controller and processor responsibilities for all NIST SP 800-171 articles. Please note that for Azure services, a customer is usually the controller and Microsoft acts as the processor.
