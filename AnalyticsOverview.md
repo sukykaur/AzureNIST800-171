@@ -1,9 +1,9 @@
 ## Overview
-The [NIST Special Publication 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) provides guidelines for protecting the controlled unclassified information (CUI) that resides in nonfederal information systems and organizations. NIST SP 800-171 establishes 14 families of security requirements for protecting the confidentiality of CUI.
+This Azure Security and Compliance Blueprint provides guidance for the deployment of a data analytics architecture in Azure that assists with the requirements of NIST Special Publication 800-171. It showcases a common reference architecture and demonstrates the proper handling of data in a secure, compliant, multi-tier environment. This blueprint demonstrates ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own data analytics solutions in Azure.
 
-This Azure Security and Compliance Blueprint provides guidance to help customers deploy a platform as a service (PaaS) web application in Azure that implements a subset of NIST SP 800-171 controls. This solution demonstrates ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own web application in Azure.
+This reference architecture, implementation guide, and threat model provide a foundation for customers to comply with NIST 800-171 requirements. This solution provides a baseline to help customers deploy workloads to Azure in a NIST 800-171 compliant manner; however, this solution should not be used as-is in a production environment because additional configuration is required.
 
-This reference architecture, associated implementation guide, and threat model are intended to serve as a foundation for customers to adapt to their specific requirements and shouldn't be used as-is in a production environment. Deploying this architecture without modification is insufficient to completely meet the requirements of NIST SP 800-171. This architecture provides a baseline to help customers deploy workloads to Azure in compliance with NIST SP 800-171. Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
+Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
 
 ## Architecture diagram and components
 This solution provides an analytics platform upon which customers can build their own analytics tools. The reference architecture outlines a generic use case where customers input data either through bulk data imports by the SQL/Data Administrator or through operational data updates via an Operational User. Both work streams incorporate Azure Functions for importing data into Azure SQL Database. Azure Functions must be configured by the customer through the Azure portal to handle the import tasks unique to each customer's own analytics requirements.
@@ -18,7 +18,7 @@ The entire solution is built upon Azure Storage which customers configure from t
 
 For enhanced security, this architecture manages resources with Azure Active Directory and Azure Key Vault. System health is monitored through Operations Management Suite and Azure Monitor. Customers configure both monitoring services to capture logs and display system health in a single, easily navigable dashboard.
 
-Azure SQL Database is commonly managed through SQL Server Management Studio (SSMS), which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture resource group**.
+Azure SQL Database is commonly managed through SQL Server Management Studio, which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture resource group**.
 
 ![Reference Architecture](Azure%20Security%20and%20Compliance%20Blueprint%20-%20PCI%20DSS%20Data%20Analytics%20Reference%20Architecture.png)
 
@@ -79,7 +79,7 @@ Azure encrypts all communications to and from Azure datacenters by default. All 
 The architecture protects data at rest through encryption, database auditing, and other measures.
 
 **Azure Storage**:
-To meet encrypted data at rest requirements, all [Azure Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).  This helps protect and safeguard cardholder data in support of organizational security commitments and compliance requirements defined by PCI DSS 3.2.
+To meet encrypted data at rest requirements, all [Azure Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).  This helps protect and safeguard data in support of organizational security commitments and compliance requirements defined by NIST 800-171.
 
 **Azure Disk Encryption**:
 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) leverages the BitLocker feature of Windows to provide volume encryption for data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
