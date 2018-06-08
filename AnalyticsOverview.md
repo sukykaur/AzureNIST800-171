@@ -57,9 +57,9 @@ The following section details the deployment and implementation elements.
 [Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) makes data sources easily discoverable and understandable by the users who manage the data. Common data sources can be registered, tagged, and searched for  data. The data remains in its existing location, but a copy of its metadata is added to Data Catalog, along with a reference to the data source location. The metadata is also indexed to make each data source easily discoverable via search and understandable to the users who discover it.
 
 ### Virtual network
-This reference architecture defines a private Virtual Network with an address space of 10.0.0.0/16.
+This reference architecture defines a private virtual network with an address space of 10.0.0.0/16.
 
-**Network Security Groups**: [Network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists that allow or deny traffic within a Virtual Network. Network security groups can be used to secure traffic at a subnet or individual virtual machine level. The following network security groups exist:
+**Network Security Groups**: [Network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain access control lists that allow or deny traffic within a Virtual Network. Network security groups can be used to secure traffic at a subnet or individual virtual machine level. The following network security groups exist:
   - A network security group for Active Directory
   - A network security group for the workload
 
