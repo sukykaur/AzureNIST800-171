@@ -1,16 +1,14 @@
 # Azure Security and Compliance Blueprint - Web Application for NIST SP 800-171
 
 ## Overview
-The [NIST Special Publication 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) provides guidelines for protecting the controlled unclassified information (CUI) that resides in nonfederal information systems and organizations. NIST SP 800-171 establishes 14 families of security requirements for protecting the confidentiality of CUI.
+[NIST Special Publication 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) provides guidelines for protecting the controlled unclassified information (CUI) that resides in nonfederal information systems and organizations. NIST SP 800-171 establishes 14 families of security requirements for protecting the confidentiality of CUI.
 
 This Azure Security and Compliance Blueprint provides guidance to help customers deploy a web application architecture in Azure that implements a subset of NIST SP 800-171 controls. This solution demonstrates ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own data warehouse solutions in Azure.
 
-This reference architecture, associated implementation guide, and threat model are intended to serve as a foundation for customers to adapt to their specific requirements and shouldn't be used as-is in a production environment. Deploying this architecture without modification is insufficient to completely meet the requirements of NIST SP 800-171. Note the following:
-- The architecture provides a baseline to help customers deploy workloads to Azure in compliance with NIST SP 800-171.
-- Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
+This reference architecture, associated implementation guide, and threat model are intended to serve as a foundation for customers to adapt to their specific requirements and shouldn't be used as-is in a production environment. Deploying this architecture without modification is insufficient to completely meet the requirements of NIST SP 800-171. Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
 
 ## Architecture diagram and components
-This solution deploys a reference architecture for an IaaS web application with a SQL Server backend. The architecture includes a web tier, data tier, Active Directory infrastructure, Application Gateway, and Load Balancer. Virtual machines deployed to the web and data tiers are configured in an availability set, and SQL Server instances are configured in an AlwaysOn availability group for high availability. Virtual machines are domain-joined, and Active Directory group policies are used to enforce security and compliance configurations at the operating system level. A management bastion host provides a secure connection for administrators to access deployed resources. **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
+This solution deploys a reference architecture for an IaaS web application with a SQL Server backend. The architecture includes a web tier, data tier, Active Directory infrastructure, Application Gateway, and Load Balancer. Virtual machines deployed to the web and data tiers are configured in an availability set, and SQL Server instances are configured in an AlwaysOn availability group for high availability. Virtual machines are domain-joined, and Active Directory group policies are used to enforce security and compliance configurations at the operating system level. A management bastion host provides a secure connection for administrators to access deployed resources. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
 
 ![alt text](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20IaaS%20WebApp%20Reference%20Architecture.png?raw=true)
 
@@ -31,7 +29,7 @@ This solution uses the following Azure services. Details of the deployment archi
 	- DNS settings are set to both domain controllers
 - Azure Load Balancer
 - Azure Application Gateway
-	- (1) WAF Application Gateway enabled
+	- (1) Web application firewall enabled
 		- firewall mode: prevention
 		- rule set: OWASP 3.0
 		- listener: port 443
@@ -48,7 +46,7 @@ This solution uses the following Azure services. Details of the deployment archi
 ## Deployment architecture
 The following section details the deployment and implementation elements.
 
-**Bastion host**: The bastion host is the single point of entry that allows users to access the deployed resources in this environment. The bastion host provides a secure connection to deployed resources by only allowing remote traffic from public IP addresses on a safe list. To permit remote desktop (RDP) traffic, the source of the traffic needs to be defined in the Network Security Group (NSG).
+**Bastion host**: The bastion host is the single point of entry that allows users to access the deployed resources in this environment. The bastion host provides a secure connection to deployed resources by only allowing remote traffic from public IP addresses on a safe list. To permit remote desktop (RDP) traffic, the source of the traffic needs to be defined in the network security group.
 
 This solution creates a virtual machine as a domain-joined bastion host with the following configurations:
 -	[Antimalware extension](https://docs.microsoft.com/azure/security/azure-security-antimalware)
@@ -65,12 +63,12 @@ The architecture defines a private virtual network with an address space of 10.2
 
 See the configuration for [network security groups](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) deployed with this solution. Organizations can configure Network Security groups by editing the file above using [this documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) as a guide.
 
-Each of the subnets has a dedicated network security group (NSG):
-- 1 NSG for Application Gateway (LBNSG)
-- 1 NSG for bastion host (MGTNSG)
-- 1 NSG for primary and backup domain controllers (ADNSG)
-- 1 NSG for SQL Servers and Cloud Witness (SQLNSG)
-- 1 NSG for web tier (WEBNSG)
+Each of the subnets has a dedicated network security group:
+- 1 network security group for Application Gateway (LBNSG)
+- 1 network security group for bastion host (MGTNSG)
+- 1 network security group for primary and backup domain controllers (ADNSG)
+- 1 network security group for SQL Servers and Cloud Witness (SQLNSG)
+- 1 network security group for web tier (WEBNSG)
 
 ### Data in transit
 Azure encrypts all communications to and from Azure datacenters by default. Additionally, all transactions to Azure Storage through the Azure portal occur via HTTPS.
@@ -108,8 +106,8 @@ The solution uses [Azure Key Vault](https://azure.microsoft.com/services/key-vau
 - Advanced access policies are configured on a need basis.
 - Key Vault access policies are defined with minimum required permissions to keys and secrets.
 - All keys and secrets in Key Vault have expiration dates.
-- All keys in Key Vault are protected by specialized hardware security modules (HSMs). The key type is an HSM Protected 2048-bit RSA Key.
-- All users and identities are granted minimum required permissions using RBAC.
+- All keys in Key Vault are protected by specialized hardware security modules (HSMs). The key type is an HSM Protected 2048-bit RSA key.
+- All users and identities are granted minimum required permissions using role-based-access-control.
 - Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
 - Permitted cryptographic operations for keys are restricted to the ones required.
 - The solution is integrated with Azure Key Vault to manage IaaS virtual machine disk-encryption keys and secrets.
@@ -123,7 +121,7 @@ The solution uses [Azure Key Vault](https://azure.microsoft.com/services/key-vau
 **Application Gateway**:
 The architecture reduces the risk of security vulnerabilities using an Application Gateway with web application firewall (WAF), and the OWASP ruleset enabled. Additional capabilities include:
 
-- [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-end-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Enable [SSL Offload](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Disable [TLS v1.0 and v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Web application firewall](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (WAF mode)
