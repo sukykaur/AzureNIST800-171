@@ -63,7 +63,7 @@ The following section details the deployment and implementation elements.
 ### Virtual network
 This reference architecture defines a private Virtual Network with an address space of 10.0.0.0/16.
 
-**Network Security Groups**: [network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists that allow or deny traffic within a Virtual Network. Network security groups can be used to secure traffic at a subnet or individual VM level. The following network security groups exist:
+**Network Security Groups**: [network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists that allow or deny traffic within a Virtual Network. Network security groups can be used to secure traffic at a subnet or individual virtual machine level. The following network security groups exist:
   - A network security group for Active Directory
   - A network security group for the workload
 
