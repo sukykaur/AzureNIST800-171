@@ -152,9 +152,9 @@ The data flow diagram for this reference architecture is available for [download
 ![Threat Model](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Warehouse%20Threat%20Model.png?raw=true)
 
 ## Compliance documentation
-The [Azure Security and Compliance Blueprint – NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/) lists all security controls required by NIST SP 800-171. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
+The [Azure Security and Compliance Blueprint – NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/nist800171crm) lists all security controls required by NIST SP 800-171. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
 
-The [Azure Security and Compliance Blueprint - NIST SP 800-171 Data Warehouse Control Implementation Matrix](https://aka.ms/) provides information on which NIST SP 800-171 controls are covered by the data warehouse architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
+The [Azure Security and Compliance Blueprint - NIST SP 800-171 Data Warehouse Control Implementation Matrix](https://aka.ms/nist800171DWCIM) provides information on which NIST SP 800-171 controls are covered by the data warehouse architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
 
 ## Guidance and recommendations
 ### VPN and ExpressRoute
