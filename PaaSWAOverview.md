@@ -95,13 +95,13 @@ To meet encrypted data at rest requirements, all [Azure Storage](https://azure.m
 
 **Azure SQL Database**:
 The Azure SQL Database instance uses the following database security measures:
--	[AD authentication and authorization](https://docs.microsoft.com/azure/sql-database/sql-database-AAD-authentication) enables identity management of database users and other Microsoft services in one central location.
+-	[Active Directory authentication and authorization](https://docs.microsoft.com/azure/sql-database/sql-database-AAD-authentication) enables identity management of database users and other Microsoft services in one central location.
 -	[SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) tracks database events and writes them to an audit log in an Azure storage account.
 -	Azure SQL Database is configured to use [transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), which performs real-time encryption and decryption of the database, associated backups, and transaction log files to protect information at rest. Transparent data encryption provides assurance that stored data has not been subject to unauthorized access.
 -	[Firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) prevent all access to database servers until proper permissions are granted. The firewall grants access to databases based on the originating IP address of each request.
 -	[SQL Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) enables the detection and response to potential threats as they occur by providing security alerts for suspicious database activities, potential vulnerabilities, SQL injection attacks, and anomalous database access patterns.
 -	[Always Encrypted Columns](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ensure that sensitive data never appears as plaintext inside the database system. After enabling data encryption, only client applications or application servers with access to the keys can access plaintext data.
-- [SQL Database dynamic data masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive data exposure by masking the data to non-privileged users or applications. Dynamic data masking can automatically discover potentially sensitive data and suggest the appropriate masks to be applied. This helps with reducing access such that sensitive data does not exit the database via unauthorized access. **Customers will need to adjust dynamic data masking settings to adhere to their database schema.**
+- [SQL Database dynamic data masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive data exposure by masking the data to non-privileged users or applications. Dynamic data masking can automatically discover potentially sensitive data and suggest the appropriate masks to be applied. This helps with reducing access such that sensitive data does not exit the database via unauthorized access. **Customers are responsible for adjusting dynamic data masking settings to adhere to their database schema.**
 
 ### Identity management
 The following technologies provide capabilities to manage access to data in the Azure environment:
@@ -167,7 +167,7 @@ The data flow diagram for this reference architecture is available for [download
 ![Threat Model](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20PaaS%20Web%20App%20Threat%20Model.PNG?raw=true)
 
 ## Compliance documentation
-The [Azure Security and Compliance Blueprint - NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/nist800171crm) lists all security controls required by NIST SP 800-171. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
+The [Azure Security and Compliance Blueprint - NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/NIST SP 800-171CRM) lists all security controls required by NIST SP 800-171. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
 
 The [Azure Security and Compliance Blueprint - NIST SP 800-171 PaaS Web Application Implementation Matrix](https://aka.ms/nist800171PaasCIM) provides information on which NIST SP 800-171 controls are addressed by the PaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
 
