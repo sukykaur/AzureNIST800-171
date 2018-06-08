@@ -10,7 +10,7 @@ This solution provides an analytics platform upon which customers can build thei
 
 Azure offers a variety of reporting and analytics services for the customer; however, this solution incorporates Azure Machine Learning services in conjunction with Azure SQL Database to rapidly browse through data and deliver faster results through smarter modeling of customer data. Azure Machine Learning is a form of machine learning intended to increase query speeds by discovering new relationships between datasets. Once the data has been trained through several statistical functions, up to 7 additional query pools (8 total including the customer server) can be synchronized with the same tabular models to spread query workload and reduce response times.
 
-For enhanced analytics and reporting, Azure SQL Databases can be configured with columnstore indexes. Both Azure Machine Learning and Azure SQL Databases can be scaled up or down or shut off completely in response to customer usage. All SQL traffic is encrypted with SSL through the inclusion of self-signed certificates. As a best practice, Azure recommends the use of a trusted certificate authority for enhanced security.
+For enhanced analytics and reporting, Azure SQL Databases can be configured with column store indexes. Both Azure Machine Learning and Azure SQL Databases can be scaled up or down or shut off completely in response to customer usage. All SQL traffic is encrypted with SSL through the inclusion of self-signed certificates. As a best practice, Azure recommends the use of a trusted certificate authority for enhanced security.
 
 Once data is uploaded to the Azure SQL Database and trained by Azure Machine Learning, it is digested by both the Operational User and SQL/Data Admin with Power BI. Power BI displays data intuitively and pulls together information across multiple datasets to draw greater insight. Its high degree of adaptability and easy integration with Azure SQL Database ensures that customers can configure it to handle a wide array of scenarios as required by their business needs.
 
@@ -39,7 +39,7 @@ This solution uses the following Azure services. Details of the deployment archi
 - Azure Virtual Network
 	- (1) /16 Network
 	- (2) /24 Networks
-	- (2) Network Security Groups
+	- (2) network security groups
 - Operations Management Suite
 - Power BI Dashboard
 
@@ -56,20 +56,20 @@ The following section details the deployment and implementation elements.
 [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends.
 
 **Azure Data Catalog**:
-[Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) makes data sources easily discoverable and understandable by the users who manage the data. Common data sources can be registered, tagged, and searched for cardholder data. The data remains in its existing location, but a copy of its metadata is added to Data Catalog, along with a reference to the data source location. The metadata is also indexed to make each data source easily discoverable via search and understandable to the users who discover it.
+[Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) makes data sources easily discoverable and understandable by the users who manage the data. Common data sources can be registered, tagged, and searched for  data. The data remains in its existing location, but a copy of its metadata is added to Data Catalog, along with a reference to the data source location. The metadata is also indexed to make each data source easily discoverable via search and understandable to the users who discover it.
 
 ### Virtual network
 This reference architecture defines a private Virtual Network with an address space of 10.0.0.0/16.
 
-**Network Security Groups**: [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists (ACLs) that allow or deny traffic within a Virtual Network. Network Security Groups can be used to secure traffic at a subnet or individual VM level. The following Network Security Groups exist:
-  - A Network Security Group for Active Directory
-  - A Network Security Group for the workload
+**Network Security Groups**: [network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain Access Control Lists (ACLs) that allow or deny traffic within a Virtual Network. Network security groups can be used to secure traffic at a subnet or individual VM level. The following network security groups exist:
+  - A network security group for Active Directory
+  - A network security group for the workload
 
-Each of the Network Security Groups have specific ports and protocols open so that the solution can work securely and correctly. In addition, the following configurations are enabled for each Network Security Group:
+Each of the network security groups have specific ports and protocols open so that the solution can work securely and correctly. In addition, the following configurations are enabled for each network security group:
   -	[Diagnostic logs and events](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) are enabled and stored in a storage account
-  -	Operations Management Suite Log Analytics is connected to the [Network Security Group's diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  -	Operations Management Suite Log Analytics is connected to the [network security group's diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
-**Subnets**: Each subnet is associated with its corresponding Network Security Group.
+**Subnets**: Each subnet is associated with its corresponding network security group.
 
 ### Data in transit
 Azure encrypts all communications to and from Azure datacenters by default. All transactions to Azure Storage through the Azure portal occur via HTTPS.
@@ -88,34 +88,34 @@ To meet encrypted data at rest requirements, all [Azure Storage](https://azure.m
 The Azure SQL Database instance uses the following database security measures:
 -	[AD authentication and authorization](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) enables identity management of database users and other Microsoft services in one central location.
 -	[SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) tracks database events and writes them to an audit log in an Azure storage account.
--	Azure SQL Database is configured to use [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), which performs real-time encryption and decryption of the database, associated backups, and transaction log files to protect information at rest. Transparent Data Encryption provides assurance that stored cardholder data has not been subject to unauthorized access.
+-	Azure SQL Database is configured to use [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), which performs real-time encryption and decryption of the database, associated backups, and transaction log files to protect information at rest. Transparent Data Encryption provides assurance that stored  data has not been subject to unauthorized access.
 -	[Firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) prevent all access to database servers until proper permissions are granted. The firewall grants access to databases based on the originating IP address of each request.
 -	[SQL Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) enables the detection and response to potential threats as they occur by providing security alerts for suspicious database activities, potential vulnerabilities, SQL injection attacks, and anomalous database access patterns.
--	[Always Encrypted Columns](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ensure that sensitive cardholder data never appears as plaintext inside the database system. After enabling data encryption, only client applications or application servers with access to the keys can access plaintext data.
-- [Extended Properties](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql) can be used to discontinue the processing of data subjects, as it allows users to add custom properties to database objects and tag data as "Discontinued" to support application logic to prevent the processing of associated cardholder data.
+-	[Always Encrypted Columns](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ensure that sensitive  data never appears as plaintext inside the database system. After enabling data encryption, only client applications or application servers with access to the keys can access plaintext data.
+- [Extended Properties](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql) can be used to discontinue the processing of data subjects, as it allows users to add custom properties to database objects and tag data as "Discontinued" to support application logic to prevent the processing of associated  data.
 - [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) enables users to define policies to restrict access to data to discontinue processing.
-- [SQL Database dynamic data masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive cardholder data exposure by masking the data to non-privileged users or applications. Dynamic data masking can automatically discover potentially sensitive data and suggest the appropriate masks to be applied. This helps to identify and reduce access to cardholder data such that it does not exit the database via unauthorized access. Customers are responsible for adjusting dynamic data masking settings to adhere to their database schema.
+- [SQL Database dynamic data masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive  data exposure by masking the data to non-privileged users or applications. Dynamic data masking can automatically discover potentially sensitive data and suggest the appropriate masks to be applied. This helps to identify and reduce access to  data such that it does not exit the database via unauthorized access. Customers are responsible for adjusting dynamic data masking settings to adhere to their database schema.
 
 ### Identity management
-The following technologies provide capabilities to manage access to cardholder data in the Azure environment:
+The following technologies provide capabilities to manage access to  data in the Azure environment:
 -	[Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is Microsoft's multi-tenant cloud-based directory and identity management service. All users for this solution are created in Azure Active Directory, including users accessing Azure SQL Database.
 -	Authentication to the application is performed using Azure Active Directory. For more information, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Additionally, the database column encryption uses Azure Active Directory to authenticate the application to Azure SQL Database. For more information, see how to [protect sensitive data in SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
--	[Azure role-based access control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) enables administrators to define fine-grained access permissions to grant only the amount of access that users need to perform their jobs. Instead of giving every user unrestricted permissions for Azure resources, administrators can allow only certain actions for accessing cardholder data. Subscription access is limited to the subscription administrator.
-- [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) enables customers to minimize the number of users who have access to certain information such as cardholder data.  Administrators can use Azure Active Directory Privileged Identity Management to discover, restrict, and monitor privileged identities and their access to resources. This functionality can also be used to enforce on-demand, just-in-time administrative access when needed.
+-	[Azure role-based access control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) enables administrators to define fine-grained access permissions to grant only the amount of access that users need to perform their jobs. Instead of giving every user unrestricted permissions for Azure resources, administrators can allow only certain actions for accessing  data. Subscription access is limited to the subscription administrator.
+- [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) enables customers to minimize the number of users who have access to certain information such as  data.  Administrators can use Azure Active Directory Privileged Identity Management to discover, restrict, and monitor privileged identities and their access to resources. This functionality can also be used to enforce on-demand, just-in-time administrative access when needed.
 -	[Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detects potential vulnerabilities affecting an organization’s identities, configures automated responses to detected suspicious actions related to an organization’s identities, and investigates suspicious incidents to take appropriate action to resolve them.
 
 ### Security
 **Secrets management**:
-The solution uses [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for the management of keys and secrets. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. The following Azure Key Vault capabilities help customers protect cardholder data and access to such data:
+The solution uses [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for the management of keys and secrets. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. The following Azure Key Vault capabilities help customers protect  data and access to such data:
 - Advanced access policies are configured on a need basis.
 - Key Vault access policies are defined with minimum required permissions to keys and secrets.
 - All keys and secrets in Key Vault have expiration dates.
-- All keys in Key Vault are protected by specialized hardware security modules (HSMs). The key type is an HSM Protected 2048-bit RSA Key.
+- All keys in Key Vault are protected by specialized hardware security modules. The key type is an hardware security modules protected 2048-bit RSA Key.
 - All users and identities are granted minimum required permissions using role-based access control.
 - Diagnostics logs for Key Vault are enabled with a retention period of at least 365 days.
 - Permitted cryptographic operations for keys are restricted to the ones required.
 
-**Security alerts**: [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) enables customers to monitor traffic, collect logs, and analyze data sources for threats. Additionally, Azure Security Center accesses existing configuration of Azure services to provide configuration and service recommendations to help improve security posture and protect cardholder data. Azure Security Center includes a [threat intelligence report](https://docs.microsoft.com/azure/security-center/security-center-threat-report) for each detected threat to assist incident response teams investigate and remediate threats.
+**Security alerts**: [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) enables customers to monitor traffic, collect logs, and analyze data sources for threats. Additionally, Azure Security Center accesses existing configuration of Azure services to provide configuration and service recommendations to help improve security posture and protect  data. Azure Security Center includes a [threat intelligence report](https://docs.microsoft.com/azure/security-center/security-center-threat-report) for each detected threat to assist incident response teams investigate and remediate threats.
 
 ### Logging and auditing
 
@@ -143,14 +143,14 @@ Additionally, the following Operations Management Suite solutions are included a
 
 ## Threat model
 
-The data flow diagram for this reference architecture is available for [download](https://aka.ms/PCIAnalyticsTM) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
+The data flow diagram for this reference architecture is available for [download](https://aka.ms/AnalyticsTM) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
 ![Threat Model](https://raw.githubusercontent.com/jayangra/AzurePCI3.2/master/Analytics/Azure%20Security%20and%20Compliance%20Blueprint%20-%20PCI%20DSS%20Data%20Analytics%20Threat%20Model.png)
 
 ## Compliance documentation
-The [Azure Security and Compliance Blueprint - PCI DSS Customer Responsibility Matrix](https://aka.ms/PCICRM) lists responsibilities for all PCI DSS 3.2 requirements.
+The [Azure Security and Compliance Blueprint - NIST 800-171 Customer Responsibility Matrix](https://aka.ms/) lists responsibilities for all NIST SP 800-171 requirements.
 
-The [Azure Security and Compliance Blueprint - PCI DSS Data Analytics Implementation Matrix](https://aka.ms/PCIAnalyticsCIM) provides information on which PCI DSS 3.2 requirements are addressed by the data analytics architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
+The [Azure Security and Compliance Blueprint - NIST 800-171 Data Analytics Implementation Matrix](https://aka.ms/) provides information on which NIST SP 800-171 requirements are addressed by the data analytics architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
 
 
 ## Guidance and recommendations
