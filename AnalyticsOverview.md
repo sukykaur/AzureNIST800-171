@@ -1,11 +1,7 @@
 # Azure Security and Compliance Blueprint - Data Analytics for NIST SP 800-171
 
 ## Overview
-This Azure Security and Compliance Blueprint provides guidance for the deployment of a data analytics architecture in Azure that assists with the requirements of NIST Special Publication 800-171. It showcases a common reference architecture and demonstrates the proper handling of data in a secure, compliant, multi-tier environment. This blueprint demonstrates ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own data analytics solutions in Azure.
-
-This reference architecture, implementation guide, and threat model provide a foundation for customers to comply with NIST 800-171 requirements. This solution provides a baseline to help customers deploy workloads to Azure in a NIST 800-171 compliant manner; however, this solution should not be used as-is in a production environment because additional configuration is required.
-
-Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
+This Azure Security and Compliance Blueprint provides guidance for the deployment of a data analytics architecture in Azure that assists with the requirements of NIST Special Publication 800-171. It showcases a common reference architecture and demonstrates the proper handling of data in a secure, compliant, multi-tier environment. This blueprint demonstrates ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own data analytics solutions in Azure. This solution provides a baseline to help customers deploy workloads to Azure in a NIST 800-171 compliant manner; however, this solution should not be used as-is in a production environment because additional configuration is required. Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
 
 ## Architecture diagram and components
 This solution provides an analytics platform upon which customers can build their own analytics tools. The reference architecture outlines a generic use case where customers input data either through bulk data imports by the SQL/Data Administrator or through operational data updates via an Operational User. Both work streams incorporate Azure Functions for importing data into Azure SQL Database. Azure Functions must be configured by the customer through the Azure portal to handle the import tasks unique to each customer's own analytics requirements.
@@ -20,7 +16,7 @@ The entire solution is built upon Azure Storage which customers configure from t
 
 For enhanced security, this architecture manages resources with Azure Active Directory and Azure Key Vault. System health is monitored through Operations Management Suite and Azure Monitor. Customers configure both monitoring services to capture logs and display system health in a single, easily navigable dashboard.
 
-Azure SQL Database is commonly managed through SQL Server Management Studio, which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture resource group**.
+Azure SQL Database is commonly managed through SQL Server Management Studio, which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture resource group**.
 
 ![Reference Architecture](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Analytics%20Reference%20Architecture.png?raw=true)
 
