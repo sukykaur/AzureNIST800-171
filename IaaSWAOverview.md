@@ -160,7 +160,7 @@ Additionally, the following OMS solutions are included as a part of this archite
 
 The data flow diagram (DFD) for this reference architecture is available for [download](https://aka.ms/NIST SP 800-171IaaSdfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![alt text](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20SP%20800-171%20IaaS%20WebApp%20Threat%20Model.tm7G?raw=true)
+![alt text](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20IaaS%20Web%20App%20Threat%20Model.png?raw=true)
 
 ## Compliance documentation
 
