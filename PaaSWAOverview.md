@@ -19,7 +19,7 @@ This solution uses the following Azure services. Details of the deployment archi
 - Azure SQL Database
 - Application Gateway
 	- (1) Web application firewall (WAF) enabled
-		- firewall mode: Prevention
+		- firewall mode: prevention
 		- rule set: OWASP 3.0
 		- listener: port 443
 - Azure Virtual Network
