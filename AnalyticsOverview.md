@@ -147,7 +147,7 @@ Additionally, the following Operations Management Suite solutions are included a
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/AnalyticsTM) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![Threat Model](https://raw.githubusercontent.com/jayangra/AzurePCI3.2/master/Analytics/Azure%20Security%20and%20Compliance%20Blueprint%20-%20PCI%20DSS%20Data%20Analytics%20Threat%20Model.png)
+![Threat Model](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Analytics%20Threat%20Model.png?raw=true)
 
 ## Compliance documentation
 The [Azure Security and Compliance Blueprint - NIST 800-171 Customer Responsibility Matrix](https://aka.ms/) lists responsibilities for all NIST SP 800-171 requirements.
