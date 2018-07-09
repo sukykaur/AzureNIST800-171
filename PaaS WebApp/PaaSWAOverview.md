@@ -21,7 +21,7 @@ Azure SQL Database is commonly managed through SQL Server Management Studio, whi
 
 Furthermore, Application Insights provides real time application performance management and analytics through Log Analytics. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
 
-![PaaS WebApp for NIST SP 800-171 Reference Architecture](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20PaaS%20WebApp%20Reference%20Architecture.png?raw=true)
+![PaaS WebApp for NIST SP 800-171 Reference Architecture](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20PaaS%20WebApp%20Reference%20Architecture.png)
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
@@ -189,7 +189,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/gdprPaaSdfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![PaaS WebApp for NIST SP 800-171 Threat Model](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20PaaS%20Web%20App%20Threat%20Model.PNG?raw=true)
+![PaaS WebApp for NIST SP 800-171 Threat Model](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20PaaS%20WebApp%20Threat%20Model.png)
 
 ## Compliance documentation
 The [Azure Security and Compliance Blueprint - NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/NIST SP 800-171CRM) lists all security controls required by NIST SP 800-171. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.

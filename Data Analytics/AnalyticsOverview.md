@@ -22,7 +22,7 @@ For enhanced security, all resources in this solution are managed as a resource 
 
 Azure SQL Database is commonly managed through SQL Server Management Studio, which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture resource group**.
 
-![Reference Architecture](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Analytics%20Reference%20Architecture.png?raw=true)
+![Data Analytics for NIST 800-171 Reference Architecture](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Analytics%20Reference%20Architecture.PNG)
 
 This solution uses the following Azure services. Details of the deployment architecture are in the [Deployment Architecture](#deployment-architecture) section.
 
@@ -147,7 +147,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/AnalyticsTM) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![Threat Model](https://github.com/sukykaur/AzureNIST800-171/blob/master/Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Analytics%20Threat%20Model.png?raw=true)
+![Data Analytics for NIST 800-171 Threat Model](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Analytics%20Threat%20Model.png)
 
 ## Compliance documentation
 The [Azure Security and Compliance Blueprint - NIST 800-171 Customer Responsibility Matrix](https://aka.ms/) lists all security controls required by NIST SP 800-171. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
