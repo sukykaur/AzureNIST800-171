@@ -156,7 +156,7 @@ Azure Security Center uses a variety of detection capabilities to alert customer
 Azure Security Center provides prioritized security alerts and incidents, making it simpler for customers to discover and address potential security issues. A [threat intelligence report](https://docs.microsoft.com/azure/security-center/security-center-threat-report) is generated for each detected threat to assist incident response teams in investigating and remediating threats.
 
 **Azure Application Gateway**:
-The architecture reduces the risk of security vulnerabilities using an Azure Application Gateway with a web application firewall configured, and the OWASP ruleset enabled. Additional capabilities include:
+The architecture reduces the risk of security vulnerabilities using an Azure Application Gateway with a web application firewall configured and the OWASP ruleset enabled. Additional capabilities include:
 
 - [End-to-end-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Enable [SSL Offload](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
