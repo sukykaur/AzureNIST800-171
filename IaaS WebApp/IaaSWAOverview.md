@@ -8,22 +8,38 @@ This Azure Security and Compliance Blueprint provides guidance to help customers
 This reference architecture, associated implementation guide, and threat model are intended to serve as a foundation for customers to adapt to their specific requirements and shouldn't be used as-is in a production environment. Deploying this architecture without modification is insufficient to completely meet the requirements of NIST SP 800-171. Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
 
 ## Architecture diagram and components
-This solution deploys a reference architecture for an IaaS web application with a SQL Server backend. The architecture includes a web tier, data tier, Active Directory infrastructure, Application Gateway, and Load Balancer. Virtual machines deployed to the web and data tiers are configured in an availability set, and SQL Server instances are configured in an AlwaysOn availability group for high availability. Virtual machines are domain-joined, and Active Directory group policies are used to enforce security and compliance configurations at the operating system level. A management bastion host provides a secure connection for administrators to access deployed resources. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
+This Azure Security and Compliance Blueprint deploys a reference architecture for an IaaS web application with a SQL Server backend. The architecture includes a web tier, data tier, Active Directory infrastructure, Application Gateway, and Load Balancer. Virtual machines deployed to the web and data tiers are configured in an availability set, and SQL Server instances are configured in an Always On availability group for high availability. Virtual machines are domain-joined, and Active Directory group policies are used to enforce security and compliance configurations at the operating system level.
+
+The entire solution is built upon Azure Storage which customers configure from the Azure portal. Azure Storage encrypts all data with Storage Service Encryption to maintain confidentiality of data at rest. Geographic Redundant Storage ensures that an adverse event at the customer's primary data center will not result in a loss of data, as a second copy will be stored in a separate location hundreds of miles away.
+
+For enhanced security, all resources in this solution are managed as a resource group through Azure Resource Manager. Azure Active Directory role-based access control is used for controlling access to deployed resources and keys in Azure Key Vault. System health is monitored through Azure Monitor. Customers configure both monitoring services to capture logs and display system health in a single, easily navigable dashboard.
+
+A management bastion host provides a secure connection for administrators to access deployed resources. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
+
 
 ![IaaS WebApp for NIST SP 800-171 Reference Architecture](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20IaaS%20WebApp%20Reference%20Architecture.png)
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
+- Azure Virtual Machines
+	- (1) management/bastion (Windows Server 2016 Datacenter)
+	- (2) Active Directory domain controller (Windows Server 2016 Datacenter)
+	- (2) SQL Server cluster node (SQL Server 2017 on Windows Server 2016)
+	- (2) Web/IIS (Windows Server 2016 Datacenter)
+- Azure Virtual Network
+	- (1) /16 network
+	- (5) /24 networks
+	- (5) Network security groups
 - Availability Sets
 	- (1) Active Directory domain controllers
 	- (1) SQL cluster nodes
 	- (1) Web/IIS
-- Azure Active Directory
 - Azure Application Gateway
 	- (1) Web Application Firewall
 		- Firewall mode: prevention
 		- Rule set: OWASP 3.0
 		- Listener port: 443
+- Azure Active Directory
 - Azure Key Vault
 - Azure Load Balancer
 - Azure Monitor
@@ -31,15 +47,7 @@ This solution uses the following Azure services. Details of the deployment archi
 - Azure Security Center
 - Azure Storage
 - Azure Log Analytics
-- Azure Virtual Machines
-	- (1) management/bastion (Windows Server 2016 Datacenter)
-	- (2) Active Directory domain controller (Windows Server 2016 Datacenter)
-	- (2) SQL Server cluster node (SQL Server 2017 on Windows Server 2016)
-	- (2) Web/IIS (Windows Server 2016 Datacenter)
-- Azure Virtual Network
-	- (1) /16 Network
-	- (5) /24 Networks
-	- (5) Network Security Groups
+- Azure Automation
 - Cloud Witness
 - Recovery Services Vault
 
@@ -116,6 +124,8 @@ The solution uses [Azure Key Vault](https://azure.microsoft.com/services/key-vau
 Azure Security Center uses a variety of detection capabilities to alert customers of potential attacks targeting their environments. These alerts contain valuable information about what triggered the alert, the resources targeted, and the source of the attack. Azure Security Center has a set of [predefined security alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), which are triggered when a threat, or suspicious activity takes place. [Custom alert rules](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) in Azure Security Center allow customers to define new security alerts based on data that is already collected from their environment.
 
 Azure Security Center provides prioritized security alerts and incidents, making it simpler for customers to discover and address potential security issues. A [threat intelligence report](https://docs.microsoft.com/azure/security-center/security-center-threat-report) is generated for each detected threat to assist incident response teams in investigating and remediating threats.
+
+Furthermore, this reference architecture utilizes the [vulnerability assessment](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) in Azure Security Center. Once configured, a partner agent (e.g. Qualys) reports vulnerability data to the partner’s management platform. In turn, the partner's management platform provides vulnerability and health monitoring data back to Azure Security Center, allowing customers to quickly identify vulnerable virtual machines.
 
 **Application Gateway**:
 The architecture reduces the risk of security vulnerabilities using an Application Gateway with web application firewall (WAF), and the OWASP ruleset enabled. Additional capabilities include:

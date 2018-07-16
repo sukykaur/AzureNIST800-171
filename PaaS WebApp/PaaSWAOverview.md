@@ -25,6 +25,11 @@ Furthermore, Application Insights provides real time application performance man
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
+- Azure Virtual Machines
+	- (1) management/bastion (Windows Server 2016 Datacenter)
+- Azure Virtual Network
+	- (1) /16 network
+	- (4) /24 networks
 - Application Gateway
 	- Web application firewall
 		- Firewall mode: prevention
@@ -43,11 +48,7 @@ This solution uses the following Azure services. Details of the deployment archi
 - Azure SQL Database
 - Azure Storage
 - Azure Log Analytics
-- Azure Virtual Machines
-	- (1) management/bastion (Windows Server 2016 Datacenter)
-- Azure Virtual Network
-	- (1) /16 Network
-	- (4) /24 Networks
+- Azure Automation
 	- Network security groups
 - Azure Web App
 
