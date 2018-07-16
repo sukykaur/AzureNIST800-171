@@ -24,7 +24,7 @@ For enhanced security, all resources in this solution are managed as a resource 
 
 A virtual machine serves as a management bastion host, providing a secure connection for administrators to access deployed resources. The data loads into the staging area through this management bastion host. **Microsoft recommends configuring a VPN or Azure ExpressRoute connection for management and data import into the reference architecture subnet.**
 
-![Data Warehouse for NIST 800-171 Reference Architecture](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Warehouse%20Reference%20Architecture.png)
+![Data Warehouse for NIST SP 800-171 Reference Architecture](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Warehouse%20Reference%20Architecture.png)
 
 This solution uses the following Azure services. Details of the deployment architecture are in the [deployment architecture](#deployment-architecture) section.
 
@@ -161,14 +161,14 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 ## Threat model
 
-The data flow diagram for this reference architecture is available for [download](https://aka.ms/) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
+The data flow diagram for this reference architecture is available for [download](https://aka.ms/nist171-dw-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![Data Warehouse for NIST 800-171 Threat Model](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Warehouse%20Threat%20Model.png)
+![Data Warehouse for NIST SP 800-171 Threat Model](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Warehouse%20Threat%20Model.png)
 
 ## Compliance documentation
-The [Azure Security and Compliance Blueprint – NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/NIST SP 800-171CRM) lists all security controls required by NIST SP 800-171. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
+The [Azure Security and Compliance Blueprint – NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/nist171-crm) lists all security controls required by NIST SP 800-171. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
 
-The [Azure Security and Compliance Blueprint - NIST SP 800-171 Data Warehouse Control Implementation Matrix](https://aka.ms/nist800171DWCIM) provides information on which NIST SP 800-171 controls are covered by the data warehouse architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
+The [Azure Security and Compliance Blueprint - NIST SP 800-171 Data Warehouse Control Implementation Matrix](https://aka.ms/nist171-dw-cim) provides information on which NIST SP 800-171 controls are covered by the data warehouse architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
 
 ## Guidance and recommendations
 

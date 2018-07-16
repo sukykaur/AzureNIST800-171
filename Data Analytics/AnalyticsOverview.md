@@ -22,7 +22,7 @@ For enhanced security, all resources in this solution are managed as a resource 
 
 Azure SQL Database is commonly managed through SQL Server Management Studio, which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture resource group**.
 
-![Data Analytics for NIST 800-171 Reference Architecture](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Analytics%20Reference%20Architecture.PNG)
+![Data Analytics for NIST SP 800-171 Reference Architecture](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Analytics%20Reference%20Architecture.PNG)
 
 This solution uses the following Azure services. Details of the deployment architecture are in the [Deployment Architecture](#deployment-architecture) section.
 
@@ -81,7 +81,7 @@ Azure encrypts all communications to and from Azure datacenters by default. All 
 The architecture protects data at rest through encryption, database auditing, and other measures.
 
 **Azure Storage**:
-To meet encrypted data at rest requirements, all [Azure Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).  This helps protect and safeguard data in support of organizational security commitments and compliance requirements defined by NIST 800-171.
+To meet encrypted data at rest requirements, all [Azure Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).  This helps protect and safeguard data in support of organizational security commitments and compliance requirements defined by NIST SP 800-171.
 
 **Azure Disk Encryption**:
 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) leverages the BitLocker feature of Windows to provide volume encryption for data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
@@ -145,14 +145,14 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 ## Threat model
 
-The data flow diagram for this reference architecture is available for [download](https://aka.ms/AnalyticsTM) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
+The data flow diagram for this reference architecture is available for [download](https://aka.ms/nist171-analytics-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![Data Analytics for NIST 800-171 Threat Model](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Analytics%20Threat%20Model.png)
+![Data Analytics for NIST SP 800-171 Threat Model](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Analytics%20Threat%20Model.png)
 
 ## Compliance documentation
-The [Azure Security and Compliance Blueprint - NIST 800-171 Customer Responsibility Matrix](https://aka.ms/) lists all security controls required by NIST SP 800-171. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
+The [Azure Security and Compliance Blueprint - NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/nist171-crm) lists all security controls required by NIST SP 800-171. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
 
-The [Azure Security and Compliance Blueprint - NIST 800-171 Data Analytics Implementation Matrix](https://aka.ms/) provides information on which NIST SP 800-171 controls are addressed by the data analytics architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
+The [Azure Security and Compliance Blueprint - NIST SP 800-171 Data Analytics Control Implementation Matrix](https://aka.ms/nist171-analytics-cim) provides information on which NIST SP 800-171 controls are addressed by the data analytics architecture, including detailed descriptions of how the implementation meets the requirements of each covered control.
 
 
 ## Guidance and recommendations
