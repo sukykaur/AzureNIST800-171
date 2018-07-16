@@ -29,7 +29,7 @@ This solution uses the following Azure services. Details of the deployment archi
 - Azure Virtual Network
 	- (1) /16 network
 	- (5) /24 networks
-	- (5) Network security groups
+	- (5) network security groups
 - Availability Sets
 	- (1) Active Directory domain controllers
 	- (1) SQL cluster nodes
