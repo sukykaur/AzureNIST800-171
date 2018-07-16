@@ -63,7 +63,7 @@ The following section details the deployment and implementation elements.
 ### Virtual network
 This reference architecture defines a private virtual network with an address space of 10.0.0.0/16.
 
-**Network Security Groups**: [Network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain access control lists that allow or deny traffic within a Virtual Network. Network security groups can be used to secure traffic at a subnet or individual virtual machine level. The following network security groups exist:
+**Network security groups**: [Network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain access control lists that allow or deny traffic within a Virtual Network. Network security groups can be used to secure traffic at a subnet or individual virtual machine level. The following network security groups exist:
   - A network security group for Active Directory
   - A network security group for the workload
 
@@ -97,7 +97,7 @@ The Azure SQL Database instance uses the following database security measures:
 - [SQL Database dynamic data masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive  data exposure by masking the data to non-privileged users or applications. Dynamic data masking can automatically discover potentially sensitive data and suggest the appropriate masks to be applied. This helps with reducing access such that sensitive data does not exit the database via unauthorized access. Customers are responsible for adjusting dynamic data masking settings to adhere to their database schema.
 
 ### Identity management
-The following technologies provide capabilities to manage access to  data in the Azure environment:
+The following technologies provide capabilities to manage access to data in the Azure environment:
 -	[Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is Microsoft's multi-tenant cloud-based directory and identity management service. All users for this solution are created in Azure Active Directory, including users accessing Azure SQL Database.
 -	Authentication to the application is performed using Azure Active Directory. For more information, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Additionally, the database column encryption uses Azure Active Directory to authenticate the application to Azure SQL Database. For more information, see how to [protect sensitive data in SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 -	[Azure role-based access control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) enables administrators to define fine-grained access permissions to grant only the amount of access that users need to perform their jobs. Instead of giving every user unrestricted permissions for Azure resources, administrators can allow only certain actions for accessing  data. Subscription access is limited to the subscription administrator.
@@ -106,7 +106,7 @@ The following technologies provide capabilities to manage access to  data in the
 
 ### Security
 **Secrets management**:
-The solution uses [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for the management of keys and secrets. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. The following Azure Key Vault capabilities help customers protect  data and access to such data:
+The solution uses [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for the management of keys and secrets. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. The following Azure Key Vault capabilities help customers protect data:
 - Advanced access policies are configured on a need basis.
 - Key Vault access policies are defined with minimum required permissions to keys and secrets.
 - All keys and secrets in Key Vault have expiration dates.
@@ -141,7 +141,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helps users track performance, maintain security, and identify trends by enabling organizations to audit, create alerts, and archive data, including tracking API calls in their Azure resources.
 
 **Application Insights**:
-[Application Insights](https://docs.microsoft.com/azure/application-insights/) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. It detects performance anomalies and includes powerful analytics tools to help diagnose issues and to understand what users actually do with the app. It's designed to help users continuously improve performance and usability.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/) is an extensible Application Performance Management service for web developers on multiple platforms. It detects performance anomalies and includes powerful analytics tools to help diagnose issues and to understand what users actually do with the app. It's designed to help users continuously improve performance and usability.
 
 ## Threat model
 
