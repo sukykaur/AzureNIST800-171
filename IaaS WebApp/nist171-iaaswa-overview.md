@@ -31,7 +31,7 @@ A management bastion host provides a secure connection for administrators to acc
 
 ![IaaS Web Application for NIST 800-171 reference architecture diagram](/IaaS%20WebApp/nist171-iaaswa-architecture.png "IaaS Web Application for NIST 800-171 reference architecture diagram")
 
-This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
+This solution uses the following Azure services. Further details are in the [deployment architecture](#deployment-architecture) section.
 
 - Azure Virtual Machines
 	- (1) management/bastion (Windows Server 2016 Datacenter)

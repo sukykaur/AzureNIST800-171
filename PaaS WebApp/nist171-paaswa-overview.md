@@ -35,7 +35,7 @@ Furthermore, Application Insights provides real time application performance man
 
 ![PaaS Web Application for NIST 800-171 reference architecture diagram](/PaaS%20WebApp/nist171-paaswa-architecture.png "PaaS Web Application for NIST 800-171 reference architecture diagram")
 
-This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
+This solution uses the following Azure services. Further details are in the [deployment architecture](#deployment-architecture) section.
 
 - Azure Virtual Machines
 	- (1) management/bastion (Windows Server 2016 Datacenter)
@@ -198,7 +198,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 **Azure Monitor**:
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helps users track performance, maintain security, and identify trends by enabling organizations to audit, create alerts, and archive data, including tracking API calls in their Azure resources.
 
-**Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management service for web developers on multiple platforms. Application Insights detects performance anomalies and customers can use it to monitor the live web application. It includes powerful analytics tools to help customers diagnose issues and to understand what users actually do with their app. It&#39;s designed to help customers continuously improve performance and usability.
+**Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management service for web developers on multiple platforms. Application Insights detects performance anomalies and customers can use it to monitor the live web application. It includes powerful analytics tools to help customers diagnose issues and to understand what users do with their app. It&#39;s designed to help customers continuously improve performance and usability.
 
 ## Threat model
 

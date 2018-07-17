@@ -32,11 +32,11 @@ The entire solution is built upon Azure Storage, which customers configure from 
 
 For enhanced security, all resources in this solution are managed as a resource group through Azure Resource Manager. Azure Active Directory role-based access control is used for controlling access to deployed resources, including their keys in Azure Key Vault. System health is monitored through Azure Security Center and Azure Monitor. Customers configure both monitoring services to capture logs and display system health in a single, easily navigable dashboard.
 
-Azure SQL Database is commonly managed through SQL Server Management Studio, which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture resource group**.
+Azure SQL Database is commonly managed through SQL Server Management Studio, which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the resource group**.
 
 ![Data Analytics for NIST 800-171 reference architecture diagram](/Data%20Analytics/nist171-analytics-architecture.png "Data Analytics for NIST 800-171 reference architecture diagram")
 
-This solution uses the following Azure services. Details of the deployment architecture are in the [Deployment Architecture](#deployment-architecture) section.
+This solution uses the following Azure services. Further details are in the [deployment architecture](#deployment-architecture) section.
 
 - Application Insights
 - Azure Active Directory
@@ -153,7 +153,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helps users track performance, maintain security, and identify trends by enabling organizations to audit, create alerts, and archive data, including tracking API calls in their Azure resources.
 
 **Application Insights**:
-[Application Insights](https://docs.microsoft.com/azure/application-insights/) is an extensible Application Performance Management service for web developers on multiple platforms. It detects performance anomalies and includes powerful analytics tools to help diagnose issues and to understand what users actually do with the app. It's designed to help users continuously improve performance and usability.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/) is an extensible Application Performance Management service for web developers on multiple platforms. It detects performance anomalies and includes powerful analytics tools to help diagnose issues and to understand what users do with the app. It's designed to help users continuously improve performance and usability.
 
 ## Threat model
 

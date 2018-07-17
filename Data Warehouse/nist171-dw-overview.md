@@ -38,7 +38,7 @@ A virtual machine serves as a management bastion host, providing a secure connec
 
 ![Data Warehouse for NIST 800-171 reference architecture diagram](/Data%20Warehouse/nist171-dw-architecture.png "Data Warehouse for NIST 800-171 reference architecture diagram")
 
-This solution uses the following Azure services. Details of the deployment architecture are in the [deployment architecture](#deployment-architecture) section.
+This solution uses the following Azure services. Further details are in the [deployment architecture](#deployment-architecture) section.
 
 - Availability Sets
     - Active Directory Domain Controllers
@@ -86,7 +86,7 @@ This solution creates a virtual machine as a domain-joined bastion host with the
 This reference architecture defines a private virtual network with an address space of 10.0.0.0/16.
 
 **Network security groups**: [Network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contain access control lists that allow or deny traffic within a virtual network. Network security groups can be used to secure traffic at a subnet or individual virtual machine level. The following network security groups exist:
-  -	A network security group for the Data Tier (SQL Server Clusters, SQL Server Witness, and SQL Load Balancer)
+  -	A network security group for the data tier (SQL Server Clusters, SQL Server Witness, and SQL Load Balancer)
   -	A network security group for the management bastion host
   -	A network security group for Active Directory
   - A network security group for SQL Server Reporting Services
