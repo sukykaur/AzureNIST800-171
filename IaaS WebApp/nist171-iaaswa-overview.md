@@ -1,4 +1,16 @@
-# Azure Security and Compliance Blueprint - Web Application for NIST SP 800-171
+---
+title: Azure Security and Compliance Blueprint - IaaS Web Application for NIST 800-171
+description: Azure Security and Compliance Blueprint - IaaS Web Application NIST for 800-171
+services: security
+author: jomolesk
+
+ms.assetid: 1f1ad27f-32c3-4e76-abb9-ea768d01747f
+ms.service: security
+ms.topic: article
+ms.date: 07/31/2018
+ms.author: jomolesk
+---
+# Azure Security and Compliance Blueprint - IaaS Web Application for NIST SP 800-171
 
 ## Overview
 [NIST Special Publication 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) provides guidelines for protecting the controlled unclassified information (CUI) that resides in nonfederal information systems and organizations. NIST SP 800-171 establishes 14 families of security requirements for protecting the confidentiality of CUI.
@@ -17,7 +29,7 @@ For enhanced security, all resources in this solution are managed as a resource 
 A management bastion host provides a secure connection for administrators to access deployed resources. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
 
 
-![IaaS WebApp for NIST SP 800-171 Reference Architecture](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20IaaS%20WebApp%20Reference%20Architecture.png)
+![IaaS Web Application for NIST 800-171 reference architecture diagram](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20IaaS%20WebApp%20Reference%20Architecture.png "IaaS Web Application for NIST 800-171 reference architecture diagram")
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
@@ -171,7 +183,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 The data flow diagram (DFD) for this reference architecture is available for [download](https://aka.ms/nist171-iaaswa-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![IaaS WebApp for NIST SP 800-171Threat Model](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20IaaS%20WebApp%20Threat%20Model.png)
+![IaaS Web Application for NIST 800-171 threat model](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20IaaS%20WebApp%20Threat%20Model.png "IaaS Web Application for NIST 800-171 threat model")
 
 ## Compliance documentation
 

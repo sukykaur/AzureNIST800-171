@@ -1,3 +1,15 @@
+---
+title: Azure Security and Compliance Blueprint - Data Analytics for NIST 800-171
+description: Azure Security and Compliance Blueprint - Data Analytics for NIST 800-171
+services: security
+author: jomolesk
+
+ms.assetid: ca75d2a8-4e20-489b-9a9f-3a61e74b032d
+ms.service: security
+ms.topic: article
+ms.date: 07/31/2018
+ms.author: jomolesk
+---
 # Azure Security and Compliance Blueprint - Data Analytics for NIST SP 800-171
 
 ## Overview
@@ -22,7 +34,7 @@ For enhanced security, all resources in this solution are managed as a resource 
 
 Azure SQL Database is commonly managed through SQL Server Management Studio, which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture resource group**.
 
-![Data Analytics for NIST SP 800-171 Reference Architecture](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Analytics%20Reference%20Architecture.PNG)
+![Data Analytics for NIST 800-171 reference architecture diagram](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Analytics%20Reference%20Architecture.png "Data Analytics for NIST 800-171 reference architecture diagram")
 
 This solution uses the following Azure services. Details of the deployment architecture are in the [Deployment Architecture](#deployment-architecture) section.
 
@@ -147,7 +159,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/nist171-analytics-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![Data Analytics for NIST SP 800-171 Threat Model](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Analytics%20Threat%20Model.png)
+![Data Analytics for NIST 800-171 threat model](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20Data%20Analytics%20Threat%20Model.png "Data Analytics for NIST 800-171 threat model")
 
 ## Compliance documentation
 The [Azure Security and Compliance Blueprint - NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/nist171-crm) lists all security controls required by NIST SP 800-171. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
