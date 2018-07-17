@@ -104,7 +104,7 @@ The architecture protects data at rest through multiple measures, including encr
 To meet encrypted data at rest requirements, all [Azure Storage](https://azure.microsoft.com/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). This helps protect and safeguard data in support of organizational security commitments and compliance requirements.
 
 **Azure Disk Encryption**:
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) leverages the BitLocker feature of Windows to provide volume encryption for OS and data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
+[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) leverages the BitLocker feature of Windows to provide volume encryption for operating system and data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
 
 **Azure SQL Database**:
 The Azure SQL Database instance uses the following database security measures:
