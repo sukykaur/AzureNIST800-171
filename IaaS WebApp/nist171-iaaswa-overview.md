@@ -29,7 +29,7 @@ For enhanced security, all resources in this solution are managed as a resource 
 A management bastion host provides a secure connection for administrators to access deployed resources. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
 
 
-![IaaS Web Application for NIST 800-171 reference architecture diagram](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20IaaS%20WebApp%20Reference%20Architecture.png "IaaS Web Application for NIST 800-171 reference architecture diagram")
+![IaaS Web Application for NIST 800-171 reference architecture diagram](/IaaS%20WebApp/nist171-iaaswa-architecture.png "IaaS Web Application for NIST 800-171 reference architecture diagram")
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
@@ -183,7 +183,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 The data flow diagram (DFD) for this reference architecture is available for [download](https://aka.ms/nist171-iaaswa-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![IaaS Web Application for NIST 800-171 threat model](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20IaaS%20WebApp%20Threat%20Model.png "IaaS Web Application for NIST 800-171 threat model")
+![IaaS Web Application for NIST 800-171 threat model](/IaaS%20WebApp/nist171-iaaswa-threat-model.png "IaaS Web Application for NIST 800-171 threat model")
 
 ## Compliance documentation
 

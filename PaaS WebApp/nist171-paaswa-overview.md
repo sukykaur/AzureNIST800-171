@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ---
-# Azure Security and Compliance Blueprint - PaaWeb Application for NIST Special Publication 800-171
+# Azure Security and Compliance Blueprint - PaaS Web Application for NIST Special Publication 800-171
 
 ## Overview
 [NIST Special Publication 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) provides guidelines for protecting the controlled unclassified information (CUI) that resides in nonfederal information systems and organizations. NIST SP 800-171 establishes 14 families of security requirements for protecting the confidentiality of CUI.
@@ -33,7 +33,7 @@ Azure SQL Database is commonly managed through SQL Server Management Studio, whi
 
 Furthermore, Application Insights provides real time application performance management and analytics through Log Analytics. **Microsoft recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
 
-![PaaS Web Application for NIST 800-171 reference architecture diagram](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20SP%20800-171%20PaaS%20WebApp%20RA.png?raw=true "PaaS Web Application for NIST 800-171 reference architecture diagram")
+![PaaS Web Application for NIST 800-171 reference architecture diagram](/PaaS%20WebApp/nist171-paaswa-architecture.png "PaaS Web Application for NIST 800-171 reference architecture diagram")
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
@@ -204,7 +204,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/nist171-paaswa-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![PaaS Web Application for NIST 800-171 threat model](Azure%20Security%20and%20Compliance%20Blueprint%20-%20NIST%20800-171%20PaaS%20WebApp%20Threat%20Model.png "PaaS Web Application for NIST 800-171 threat model")
+![PaaS Web Application for NIST 800-171 threat model](/PaaS%20WebApp/nist171-paaswa-threat-model.png "PaaS Web Application for NIST 800-171 threat model")
 
 ## Compliance documentation
 The [Azure Security and Compliance Blueprint - NIST SP 800-171 Customer Responsibility Matrix](https://aka.ms/nist171-crm) lists all security controls required by NIST SP 800-171. This matrix details whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.
